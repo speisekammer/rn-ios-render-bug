@@ -1,13 +1,9 @@
-import firestore from '@react-native-firebase/firestore';
-import {useDocumentData} from 'react-firebase-hooks/firestore';
 import React, {JSX} from 'react';
 import {Section} from './Section';
+import {useUserProfile} from './useUserProfile';
 
 export function UserProfile(): JSX.Element {
-  const db = firestore();
-  const [userProfile, loading, error] = useDocumentData(
-    db.collection('users').doc('test-user'),
-  );
+  const [userProfile, loading, error] = useUserProfile('test-user');
 
   if (error) {
     return <Section title={'Error'}>Error: {error}</Section>;
