@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {JSX} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
@@ -10,9 +10,9 @@ import {
   View,
 } from 'react-native';
 
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {useDocumentData} from 'react-firebase-hooks/firestore';
+import firestore from '@react-native-firebase/firestore';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -51,6 +51,18 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const db = firestore();
+  const [userProfile, loading, error] = useDocumentData(
+    db.collection('users').doc('test-user'),
+  );
+
+  if (error) {
+    return <Text>Error: {error}</Text>;
+  }
+  if (loading) {
+    return <Text>Loading...</Text>;
+  }
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -65,7 +77,7 @@ function App(): JSX.Element {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="User Profile">
-            Name:
+            Name: {userProfile?.name}
           </Section>
         </View>
       </ScrollView>
