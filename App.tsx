@@ -76,9 +76,7 @@ function App(): JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="User Profile">
-            Name: {userProfile?.name}
-          </Section>
+          <Section title="User Profile">Name: {userProfile?.name}</Section>
         </View>
       </ScrollView>
     </SafeAreaView>
