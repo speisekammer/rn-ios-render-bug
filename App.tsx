@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {UserProfile} from './src/UserProfile';
+import {UserProfileSection} from './src/UserProfileSection';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -30,7 +30,7 @@ function App(): JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <UserProfile />
+          <UserProfileSection />
         </View>
       </ScrollView>
     </SafeAreaView>
