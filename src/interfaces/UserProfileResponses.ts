@@ -1,6 +1,8 @@
-import {UserProfile} from './UserProfile';
+import {UserProfileRepresentation} from './UserProfileRepresentation';
 
 export interface UserProfileResponses {
-  renderUserProfile: (userProfile: UserProfile | undefined) => void;
+  renderUserProfile: (
+    userProfile: UserProfileRepresentation | undefined,
+  ) => void;
   setError: (error: Error) => void;
 }

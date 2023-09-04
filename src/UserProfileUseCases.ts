@@ -5,6 +5,7 @@ import {
 } from './interfaces/UserProfilePersistenceGateway';
 import {UserProfile} from './interfaces/UserProfile';
 import {UserProfileResponses} from './interfaces/UserProfileResponses';
+import {userProfileToRepresentation} from './UserProfileRepresentationMapper';
 
 export class UserProfileUseCases implements UserProfileRequests {
   private readonly _userProfilePersistence: UserProfilePersistenceGateway;
@@ -26,7 +27,9 @@ export class UserProfileUseCases implements UserProfileRequests {
       userProfile: UserProfile | undefined,
     ) => {
       const userProfileOrUndefined =
-        userProfile === undefined ? undefined : userProfile;
+        userProfile === undefined
+          ? undefined
+          : userProfileToRepresentation(userProfile);
       responses.renderUserProfile(userProfileOrUndefined);
     };
 

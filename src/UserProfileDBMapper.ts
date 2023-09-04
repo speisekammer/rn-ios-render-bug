@@ -1,7 +1,7 @@
 import {UserProfile} from './interfaces/UserProfile';
 import {Deserializable} from './interfaces/Deserializable';
 
-export class UserProfileMapper implements Deserializable<UserProfile> {
+export class UserProfileDBMapper implements Deserializable<UserProfile> {
   deserialize(object: Record<string, any>): UserProfile {
     try {
       return {id: object.id, name: object.name};

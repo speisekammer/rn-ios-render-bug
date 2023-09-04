@@ -32,7 +32,7 @@ export function UserProfileSection(): JSX.Element {
   }
   return (
     <>
-      <Section title="User Profile">Name: {value?.name}</Section>
+      <Section title="User Profile">Name: {value?.displayName}</Section>
       <Section title={'Persistence'}>
         {JSON.stringify(userProfilePersistence)}
       </Section>

@@ -8,13 +8,13 @@ import {
 } from './interfaces/UserProfilePersistenceGateway';
 import {Unsubscribe} from './interfaces/types';
 import {UserProfile} from './interfaces/UserProfile';
-import {UserProfileMapper} from './UserProfileMapper';
+import {UserProfileDBMapper} from './UserProfileDBMapper';
 
 export class UserProfileFirestorePersistence
   implements UserProfilePersistenceGateway
 {
   private unsubscribeUserProfile: Unsubscribe | undefined;
-  private readonly userProfileMapper = new UserProfileMapper();
+  private readonly userProfileMapper = new UserProfileDBMapper();
 
   private deserializeUserProfile(
     snap: FirebaseFirestoreTypes.DocumentSnapshot,

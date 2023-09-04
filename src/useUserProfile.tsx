@@ -1,11 +1,11 @@
 import {useEffect, useRef, useState} from 'react';
 
 import {useLoadingValue} from './helper/useLoadingValue';
-import {UserProfile} from './interfaces/UserProfile';
 import {UserProfilePersistenceGateway} from './interfaces/UserProfilePersistenceGateway';
 import {UserProfileRequests} from './interfaces/UserProfileRequests';
 import {UserProfileUseCases} from './UserProfileUseCases';
 import {UserProfilePresenter} from './UserProfilePresenter';
+import {UserProfileRepresentation} from './interfaces/UserProfileRepresentation';
 
 export const useComparatorRef = <T,>(
   value: T | null | undefined,
@@ -48,14 +48,14 @@ export interface CollectionReturnType<T> {
   loading: boolean;
   error?: Error;
 }
-type UseUserProfileType = CollectionReturnType<UserProfile>;
+type UseUserProfileType = CollectionReturnType<UserProfileRepresentation>;
 
 export const useUserProfile = (
   userId: string | undefined,
   userProfilePersistence: UserProfilePersistenceGateway | undefined,
 ): UseUserProfileType => {
   const {setValue, setError, value, loading, error, reset} = useLoadingValue<
-    UserProfile,
+    UserProfileRepresentation,
     Error
   >();
 
