@@ -1,5 +1,7 @@
 This is an example [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
-This is used to track down unexpected behaviour in React rendering / caching.
+This is used to track down unexpected behaviour in React rendering / caching for **iOS**.
+
+## Update: This task can only be solved using iOS, because the bug only is reproducible there.
 
 # Getting Started
 
@@ -17,7 +19,7 @@ yarn start
 
 ## Step 2: Start your Application
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _iOS_ app:
 
 
 ```bash
